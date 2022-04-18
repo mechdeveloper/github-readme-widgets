@@ -5,9 +5,9 @@ module.exports = (req, res) => {
     username,
     sort
   } = req.query;
-  
+
   try {
-    res.status(200).send(`Hello ${username}!`);
+    res.status(200).send(`<div>Hello ${username}!</div>`);
   } catch (err) {
     return res.send(renderError(err.message));
   }
