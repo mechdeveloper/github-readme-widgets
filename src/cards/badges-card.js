@@ -1,7 +1,7 @@
 const renderBadgesCard = (badges) => {
     // console.log(`badges-card: BEGIN`);
     
-    let badgesCard = '<div align="center">'
+    let badgesCard = '<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><foreignObject width="100%" height="100%"><div align="center" xmlns="http://www.w3.org/1999/xhtml">'
 
     for (let item of badges.data){
         // console.log(item.id);
@@ -10,7 +10,7 @@ const renderBadgesCard = (badges) => {
         badgesCard += '</a>';
     }
 
-    badgesCard += '</div>';
+    badgesCard += '</div></foreignObject></svg>';
     
     // console.log(`badges-card: ${badgesCard}`);
     // console.log(`badges-card: END`);

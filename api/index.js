@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
       // Send Response
       // console.log(`index.js: SUCCESS`)
-      res.setHeader("Content-Type", "text/html");
+      res.setHeader("Content-Type", "image/svg+xml");
       return res.send(renderBadgesCard(badges));
       
     } catch (err) {
