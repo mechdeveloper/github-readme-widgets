@@ -9,13 +9,7 @@ const renderBadgesCard = (badges) => {
     badges.data.forEach(function (item, i ) {
         // console.log('%d: %s', i, item.id);
         badgesCard += `<g transform="translate(${transformX},${transformY})">`
-        badgesCard += `<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">`
-        // badgesCard += `<defs><clipPath id="${item.id}">`
-        // badgesCard += `<rect width="100" height="100" />`
-        // badgesCard += `</clipPath></defs>`
-        // badgesCard += `<image width="100" height="100" xlink:href="${item.image_url}" clip-path="url(#${item.id})" />`
         badgesCard += `<image width="100" height="100" href="${item.image_url}" />`
-        badgesCard += `</svg>`
         badgesCard += `</g>`
         // badgesCard += `<a href="${item.badge_template.url}">`;
         // badgesCard += `<img width="120" height="120" alt="${item.badge_template.name}" src="${item.image_url}" />`
