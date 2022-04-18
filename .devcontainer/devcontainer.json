@@ -29,5 +29,7 @@
 		"git-lfs": "latest",
 		"sshd": "latest",
 		"node": "lts"
-	}
+	},
+	"runArgs": ["--env-file", ".devcontainer/devcontainer.env"],
+	"postCreateCommand": "npm install; npm i -g vercel"
 }

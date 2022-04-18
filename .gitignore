@@ -1,0 +1,8 @@
+.vercel
+node_modules
+package-lock.json
+*.env
+
+# IDE
+.vscode
+*.code-workspace
