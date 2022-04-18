@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       // Send Response
       // console.log(`index.js: SUCCESS`)
       res.setHeader("Content-Type", "image/svg+xml");
-      res.setHeader("Content-Security-Policy", "img-src https://images.credly.com;");
+      res.setHeader("Content-Security-Policy", "img-src * 'self' data: https:");
       return res.send(renderBadgesCard(badges));
       
     } catch (err) {
