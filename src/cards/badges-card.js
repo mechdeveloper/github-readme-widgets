@@ -21,7 +21,7 @@ const renderBadgesCard = (badges) => {
     
     badges.data.forEach(function (item, i ) {
         // console.log('%d: %s', i, item.id);
-        badgesCard += `<g transform="translate(${transformX},${transformY})"><svg>`
+        badgesCard += `<g transform="translate(${transformX},${transformY})"><svg xmlns="http://www.w3.org/2000/svg">`
         badgesCard += `<defs><clipPath id="${item.id}">`
         badgesCard += `<rect width="100" height="100" />`
         badgesCard += `</clipPath></defs>`
