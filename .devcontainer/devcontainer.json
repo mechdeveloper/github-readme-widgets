@@ -14,13 +14,14 @@
 
 
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [],
+	"extensions": ["jock.svg"],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": [3000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	// Download and install Vercel CLI
+	"postCreateCommand": "npm install; npm i -g vercel",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
@@ -29,7 +30,5 @@
 		"git-lfs": "latest",
 		"sshd": "latest",
 		"node": "lts"
-	},
-	"runArgs": ["--env-file", ".devcontainer/devcontainer.env"],
-	"postCreateCommand": "npm install; npm i -g vercel"
+	}
 }
