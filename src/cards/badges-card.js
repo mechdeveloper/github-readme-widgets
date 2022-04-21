@@ -1,5 +1,6 @@
 const renderBadgesCard = (badges) => {
     // console.log(`badges-card: BEGIN`);
+    const title = `Certifications and Exams`;
     const totalCount = badges.metadata.total_count;
 
     let certItems = ` `;
@@ -8,7 +9,7 @@ const renderBadgesCard = (badges) => {
     // badges.data.forEach(function (item, i ) {
     // for (const item of badges.data) {
     for (let i = 0; i < 5; i++) {
-        certItems += `<text x="0" y="${certItemPropY}" class="stagger">${badges.data[i].badge_template.name}</text>>`;
+        certItems += `<text x="0" y="${certItemPropY}" class="cert-text">${badges.data[i].badge_template.name}</text>`;
         certItemPropY += 20;   
     }
 
@@ -21,14 +22,31 @@ const renderBadgesCard = (badges) => {
             xmlns="http://www.w3.org/2000/svg" 
             xmlns:xlink="http://www.w3.org/1999/xlink" >
 
+            <style>
+              .header {
+                font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+                fill: #white;
+                animation: fadeInAnimation 0.8s ease-in-out forwards;
+              }
+              @supports(-moz-appearance: auto) {
+                /* Selector detects Firefox */
+                .header { font-size: 15.5px; }
+              }
+              .cert-text {
+                font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; 
+                fill: #white;
+              }
+            </style>
+            
             <rect data-id="card-bg" 
-              x="0.5" 
-              y="0.5" 
-              rx="4.5"
+              x="2" 
+              y="2" 
+              rx="5"
               width="99%" 
               height="99%"
               stroke="#ffffff"
               fill="#000000"
+              stroke-width="2"
               stroke-opacity="1"
             />
 
@@ -41,42 +59,21 @@ const renderBadgesCard = (badges) => {
                     y="0"
                     class="header"
                     data-testid="header">
-                        Exams and Certifications
+                        ${title}
                   </text>
                 </g>
             </g>
 
             <g data-id="main-card-body"
               transform="translate(25, 75)">
-            
-              <g data-id="Total Badges" 
-                transform="translate(425, 50)">
-                <text
-                    x="0"
-                    y="0"
-                    font-size="100"
-                    class="stagger">
-                    10
-                </text>
-                <text
-                    x="0"
-                    y="30"
-                    font-size="20"
-                    class="stagger">
-                    Total Badges
-                </text>
-              </g>
-            
               ${certItems}
             </g>
         </svg>
     `
-
-
-
     // console.log(`badges-card: ${badgesCard}`);
     // console.log(`badges-card: END`);
     return `${badgesCard}`;
+
 };
 
 module.exports = renderBadgesCard
