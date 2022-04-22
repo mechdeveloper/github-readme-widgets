@@ -1,30 +1,30 @@
-# Certifications Readme Widget
+# GitHub Readme Widgets
 
-Get dynamically generated Certifications you have earned on your readme !
+Get dynamically generated widgets for your GitHub Profile Readme !
 
 # Features
 
-- [Certifications card](#certifications-badges-card)
+- [Certifications card](#certifications-card)
 
-# Certifications Card
+# Certifications Card 
 
-Copy-paste following into your markdown content, and that's it. Simple!
+Copy-paste following into your markdown content !
 
-Change the `?username=` value to your Credly's username.
+Change the `?username=` value to your [Credly's username](https://www.credly.com/users/sign_in).
 
 ```md
-[![Cetifications](https://certifications-readme-widget.vercel.app/api?username=ashishsinghbaghel)](https://github.com/mechdeveloper/certifications-readme-widget)
+[![Cetifications](https://github-readme-widgets.vercel.app/api?username=ashishsinghbaghel)](https://github.com/mechdeveloper/github-readme-widgets)
 ```
 
-[![My Credly Badges](https://certifications-readme-widget.vercel.app/api?username=ashishsinghbaghel)](https://github.com/mechdeveloper/certifications-readme-widget)
+[![My Credly Badges](https://github-readme-widgets.vercel.app/api?username=ashishsinghbaghel)](https://github.com/mechdeveloper/github-readme-widgets)
 
-### Themes (Planned in Future)
+## Themes (Planned in Future)
 
 With inbuilt themes, you can customize the look of the card 
 Use `&theme=THEME_NAME` parameter
 
 ```md
-[![Cetifications](https://credly-readme-widget.vercel.app/api?username=ashishsinghbaghel&theme=dark)](https://github.com/mechdeveloper/certifications-readme-widget)
+[![Cetifications](https://github-readme-widgets.vercel.app/api?username=ashishsinghbaghel&theme=dark)](https://github.com/mechdeveloper/github-readme-widgets)
 ```
 
 You can look at a preview for [all available themes](./themes/README.md) or checkout the [theme config file](./themes/index.js) & **you can also contribute new themes** if you like :D
