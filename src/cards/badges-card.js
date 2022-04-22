@@ -1,7 +1,95 @@
-const renderBadgesCard = (badges) => {
+const themes = require("../../themes");
+
+function isValidHexColor(hexColor) {
+  return new RegExp(
+    /^([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3}|[A-Fa-f0-9]{4})$/,
+  ).test(hexColor);
+}
+
+function isValidGradient(colors) {
+  return isValidHexColor(colors[1]) && isValidHexColor(colors[2]);
+}
+
+function fallbackColor(color, fallbackColor) {
+  let colors = color.split(",");
+  let gradient = null;
+
+  if (colors.length > 1 && isValidGradient(colors)) {
+    gradient = colors;
+  }
+
+  return (
+    (gradient ? gradient : isValidHexColor(color) && `#${color}`) ||
+    fallbackColor
+  );
+}
+
+function getCardColors({
+  title_color,
+  text_color,
+  icon_color,
+  bg_color,
+  border_color,
+  theme,
+  fallbackTheme = "default",
+}) {
+  const defaultTheme = themes[fallbackTheme];
+  const selectedTheme = themes[theme] || defaultTheme;
+  const defaultBorderColor =
+    selectedTheme.border_color || defaultTheme.border_color;
+
+  // get the color provided by the user else the theme color
+  // finally if both colors are invalid fallback to default theme
+  const titleColor = fallbackColor(
+    title_color || selectedTheme.title_color,
+    "#" + defaultTheme.title_color,
+  );
+  const iconColor = fallbackColor(
+    icon_color || selectedTheme.icon_color,
+    "#" + defaultTheme.icon_color,
+  );
+  const textColor = fallbackColor(
+    text_color || selectedTheme.text_color,
+    "#" + defaultTheme.text_color,
+  );
+  const bgColor = fallbackColor(
+    bg_color || selectedTheme.bg_color,
+    "#" + defaultTheme.bg_color,
+  );
+
+  const borderColor = fallbackColor(
+    border_color || defaultBorderColor,
+    "#" + defaultBorderColor,
+  );
+
+  return { titleColor, iconColor, textColor, bgColor, borderColor };
+}
+
+const renderBadgesCard = (badges, theme="default") => {
     // console.log(`badges-card: BEGIN`);
+    // const theme = "default";
+
+    // returns theme based colors with proper overrides and defaults
     const title = `Certifications and Exams`;
     const totalCount = badges.metadata.total_count;
+
+    // console.log(theme);
+
+    // titleColor = `#white`;
+    // textColor = `#black`;
+    // bgColor = `#000000`;
+    // borderColor = `#ffffff`;
+
+    // returns theme based colors with proper overrides and defaults
+    const { titleColor, textColor, iconColor, bgColor, borderColor } =
+    getCardColors({
+      // title_color,
+      // icon_color,
+      // text_color,
+      // bg_color,
+      // border_color,
+      theme
+    });
 
     let certItems = ` `;
     let certItemPropY = 0;
@@ -25,7 +113,7 @@ const renderBadgesCard = (badges) => {
             <style>
               .header {
                 font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-                fill: #white;
+                fill: ${titleColor};
                 animation: fadeInAnimation 0.8s ease-in-out forwards;
               }
               @supports(-moz-appearance: auto) {
@@ -34,7 +122,7 @@ const renderBadgesCard = (badges) => {
               }
               .cert-text {
                 font: 600 14px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; 
-                fill: #white;
+                fill: ${textColor};
               }
             </style>
             
@@ -44,8 +132,8 @@ const renderBadgesCard = (badges) => {
               rx="5"
               width="99%" 
               height="99%"
-              stroke="#ffffff"
-              fill="#000000"
+              stroke="${borderColor}"
+              fill="${bgColor}"
               stroke-width="2"
               stroke-opacity="1"
             />

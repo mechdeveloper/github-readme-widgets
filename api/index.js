@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       // console.log(`index.js: SUCCESS`)
       res.setHeader("Content-Type", "image/svg+xml");
       res.setHeader("Vary", "Accept-Encoding");
-      return res.send(renderBadgesCard(badges));
+      return res.send(renderBadgesCard(badges, theme));
       
     } catch (err) {
       // console.log(`index.js: ERROR: ${err.message}`)
