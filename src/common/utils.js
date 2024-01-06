@@ -14,6 +14,7 @@ function encodeHTML(str) {
 const SECONDARY_ERROR_MESSAGES = {
     MAX_RETRY: "Max retries reached, unable to get data ! Please retry after sometime !! ",
     USER_NOT_FOUND: "Please make sure the provided username is correct !",
+    TRANSCRIPT_NOT_FOUND: "Please ensure that provided transcript id is correct !"
 };
 
 class CustomError extends Error {

@@ -1,7 +1,7 @@
 {
-  "name": "credly-readme-widget",
+  "name": "github-readme-widget",
   "version": "0.0.1",
-  "description": "Dynamically generate credly badges for your github readme",
+  "description": "Dynamically generate widgets for your github readme",
   "main": "index.js",
   "author": "Ashish Singh Baghel",
   "license": "MIT",
